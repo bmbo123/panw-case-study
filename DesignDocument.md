@@ -30,7 +30,7 @@ For testing, I had some phrases that I knew the verbage and tone for and tested 
 
 2. **More Nuanced Emotion Output**: Currently it's just "positive/negative/neutral". Could expand to specific emotions like anger, sadness, anxiety, joy, stress, excitement, etc. That would tell users more about what they're actually feeling instead of just good or bad.
 
-3. **Better Emoji Handling**: I tried using a big dataset of emoji sentiments at first but it was garbage. The mappings were weird, like peach emoji showing up as "fruit" getting a neutral score when people use it for flirting. So I switched to just manually picking the common journaling emojis. For a real version I'd expand the list but keep it curated, not automated.
+3. **Better Emoji Handling**: I tried using a big dataset of emoji sentiments at first but it was garbage. The mappings were weird, like certain emojis werent accurately represented in their real world usages. So I switched to just manually picking the common journaling emojis. For a real version I'd expand the list but keep it curated, not automated.
 
 4. **Batch Processing**: Right now you add one entry at a time. Could load a CSV of old journal entries and analyze them all at once. Would be useful if someone wanted to import their existing journal.
 
