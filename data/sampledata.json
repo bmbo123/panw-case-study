@@ -1,0 +1,92 @@
+[
+  {
+    "text": "crushing it at work",
+    "expected_mood": "positive",
+    "expected_energy": "high",
+    "why": "spaCy detects verb='crush' + obj='it' → explicit rule fires"
+  },
+  {
+    "text": "the workload is crushing me",
+    "expected_mood": "negative",
+    "expected_energy": "high_stress",
+    "why": "spaCy detects verb='crush' + obj='me' → rule + NRCLex stress emotions"
+  },
+  {
+    "text": "I'm not happy",
+    "expected_mood": "negative",
+    "expected_energy": "medium",
+    "why": "VADER handles negation internally: 'not' flips 'happy'"
+  },
+  {
+    "text": "today was amazing 🔥",
+    "expected_mood": "positive",
+    "expected_energy": "high",
+    "why": "Positive word + positive emoji, VADER + emoji both agree"
+  },
+  {
+    "text": "feeling overwhelmed 😩😭",
+    "expected_mood": "negative",
+    "expected_energy": "high_stress",
+    "why": "Negative word + multiple negative emojis + NRCLex detects fear/sadness"
+  },
+  {
+    "text": "the weather is cloudy",
+    "expected_mood": "neutral",
+    "expected_energy": "medium",
+    "why": "No sentiment words, no emotions, VADER compound score near 0"
+  },
+  {
+    "text": "",
+    "expected_mood": "neutral",
+    "expected_energy": "low",
+    "why": "Empty string handled gracefully"
+  },
+  {
+    "text": "😊🎉✨",
+    "expected_mood": "positive",
+    "expected_energy": "high",
+    "why": "Emoji-only entry, all positive emojis"
+  },
+  {
+    "text": "not good not great",
+    "expected_mood": "negative",
+    "expected_energy": "medium",
+    "why": "Negation flips both positive words via VADER"
+  },
+  {
+    "text": "I'm happy and sad",
+    "expected_mood": "neutral",
+    "expected_energy": "medium",
+    "why": "Mixed sentiment: VADER detects both emotions, NRCLex also mixed"
+  },
+  {
+    "text": "I'm so very angry and frustrated!!!!",
+    "expected_mood": "negative",
+    "expected_energy": "high_stress",
+    "why": "VADER intensifiers ('so', 'very') + punctuation ('!!!') + NRCLex detects anger"
+  },
+  {
+    "text": "everything is falling apart 😭",
+    "expected_mood": "negative",
+    "expected_energy": "high_stress",
+    "why": "Negative sentiment + negative emoji + NRCLex detects sadness/fear"
+  },
+  {
+    "text": "I got the promotion I've been wanting for months!!! 🎉🔥",
+    "expected_mood": "positive",
+    "expected_energy": "high",
+    "why": "Very positive words + intensifiers + positive emojis + NRCLex joy"
+  },
+  {
+    "text": "just okay I guess",
+    "expected_mood": "neutral",
+    "expected_energy": "medium",
+    "why": "Weak positive ('okay') undermined by hedging ('I guess'), VADER near 0"
+  },
+  {
+    "text": "absolutely crushing this project 💯✨",
+    "expected_mood": "positive",
+    "expected_energy": "high",
+    "why": "Contextual rule (crush + 'this') + intensifier ('absolutely') + positive emojis"
+  }
+]

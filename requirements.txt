@@ -1,5 +1,4 @@
 spacy==3.7.2
 vaderSentiment==3.3.2
-nrclex==0.0.10
 emoji==2.8.0
 pytest==7.4.3
