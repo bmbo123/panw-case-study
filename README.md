@@ -1,6 +1,7 @@
 # panw-case-study
 
 Case Study Challenge - PANW
+AI-Powered Journal.
 
 ## Setup
 
