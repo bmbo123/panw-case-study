@@ -44,4 +44,3 @@ Run the tests:
 pytest tests/test_analyzer.py -v
 ```
 
-20 tests, all pass.
