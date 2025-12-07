@@ -1,4 +1,4 @@
-# panw-case-study
+# panw-case-study - JOURNAL
 
 Case Study Challenge - PANW
 AI-Powered Journal.
