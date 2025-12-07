@@ -8,17 +8,15 @@ def main():
     parser = argparse.ArgumentParser(
         description="AI-Powered Journal Analyzer - Track your mood and energy"
     )
+    ### commands
     subparsers = parser.add_subparsers(dest="cmd", help="Commands")
     
-    # Command: add
     add_parser = subparsers.add_parser("add", help="Add a new journal entry")
     add_parser.add_argument("text", type=str, help="Journal entry text")
     
-    # Command: last
     last_parser = subparsers.add_parser("last", help="View last N entries")
     last_parser.add_argument("--n", type=int, default=3, help="Number of entries (default: 3)")
     
-    # Command: stats
     stats_parser = subparsers.add_parser("stats", help="Show mood statistics")
     stats_parser.add_argument("--n", type=int, default=10, help="Analyze last N entries (default: 10)")
     
@@ -33,7 +31,7 @@ def main():
     else:
         parser.print_help()
 
-
+### handle commands
 def handle_add(text: str):
     """Handle 'add' command."""
     if not text.strip():

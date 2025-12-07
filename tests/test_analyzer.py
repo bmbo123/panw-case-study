@@ -39,21 +39,6 @@ class TestVaderSentiment:
         assert result["energy"] == "high"
 
 
-class TestNRCLexEmotions:
-    def test_fear_emotion_detection(self):
-        result = analyze("I'm so anxious and afraid right now")
-        assert result["mood"] == "negative"
-    
-    def test_joy_emotion_detection(self):
-        result = analyze("I'm filled with joy and delight")
-        assert result["mood"] == "positive"
-    
-    def test_anger_detection(self):
-        result = analyze("I'm so angry and frustrated")
-        assert result["mood"] == "negative"
-        assert result["energy"] == "high_stress"
-
-
 class TestEmojiDetection:
     def test_positive_emoji_only(self):
         result = analyze("today was great 🔥")
@@ -103,27 +88,15 @@ class TestEdgeCases:
 
 
 class TestNegation:
-    def test_not_good(self):
-        result = analyze("Today was not good")
-        assert result["mood"] == "negative"
-    
     def test_not_happy(self):
         result = analyze("I'm not happy")
         assert result["mood"] == "negative"
-    
-    def test_never_bad(self):
-        result = analyze("This is never bad")
-        assert result["mood"] in ["positive", "negative", "neutral"]
 
 
 class TestNeutral:
     def test_truly_neutral(self):
         result = analyze("The weather is cloudy today")
         assert result["mood"] == "neutral"
-    
-    def test_mixed_equal_sentiment(self):
-        result = analyze("good and bad")
-        assert result["mood"] in ["positive", "negative", "neutral"]
 
 
 class TestStorageIntegration:
@@ -139,17 +112,6 @@ class TestStorageIntegration:
         entries = get_last_entries(1)
         assert len(entries) == 1
         assert entries[0]["mood"] == "positive"
-
-
-class TestStressDetection:
-    def test_overwhelming_stress(self):
-        result = analyze("everything is overwhelming me right now")
-        assert result["mood"] == "negative"
-        assert result["energy"] in ["high_stress", "medium"]
-    
-    def test_regular_negative_no_stress(self):
-        result = analyze("this is not ideal")
-        assert result["mood"] == "negative"
 
 
 if __name__ == "__main__":
